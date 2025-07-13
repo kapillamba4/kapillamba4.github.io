@@ -48,7 +48,7 @@ const Reading = () => {
   return (
     <div className="max-w-6xl mx-auto space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-3xl md:text-4xl font-bold">PaperShelf</h1>
+        <h1 className="text-3xl md:text-4xl font-bold">Shelf</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           My personal collection of books and research papers that have shaped my understanding 
           of computer science and software engineering.
