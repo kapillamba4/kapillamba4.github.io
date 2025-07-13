@@ -1,8 +1,8 @@
-
-import { Github, Linkedin, FileText, Mail } from "lucide-react";
+import { Github, Linkedin, FileText, Mail, Briefcase, GraduationCap, Award, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 
 const About = () => {
   return (
@@ -24,7 +24,11 @@ const About = () => {
             </Avatar>
             <div>
               <h2 className="text-xl font-semibold">Kapil Lamba</h2>
-              <p className="text-muted-foreground">Backend Engineer</p>
+              <p className="text-muted-foreground">Senior Backend Engineer</p>
+              <div className="flex items-center justify-center space-x-1 text-sm text-muted-foreground mt-2">
+                <MapPin className="h-3 w-3" />
+                <span>Bangalore, India</span>
+              </div>
             </div>
             <div className="flex justify-center space-x-2">
               <Button variant="outline" size="sm" asChild>
@@ -48,26 +52,26 @@ const About = () => {
 
         {/* Bio Content */}
         <div className="md:col-span-2 space-y-6">
-        <Card>
-          <CardContent className="p-6">
-            <h3 className="text-xl font-semibold mb-4">About Me</h3>
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                I'm a senior backend engineer with experience building scalable and resilient systems at companies like
-                Target, Flipkart, and Brevo. My work spans orchestration platforms, UPI integration, large-scale API gateways,
-                and data-intensive backends.
-              </p>
-              <p>
-                I specialize in system design, performance optimization, and delivering solutions that are reliable, maintainable,
-                and impactful. My tech stack includes Golang, Java, Kafka, RabbitMQ, Redis, PostgreSQL, MongoDB, ClickHouse, Kubernetes, and Terraform.
-              </p>
-              <p>
-                Outside of work, I enjoy reading engineering blogs, solving interesting coding problems to sharpen my thinking, and exploring new tools and frameworks.
-                I'm passionate about clean architecture, developer experience, and building resilient systems that scale.
-              </p>
-            </div>
-        </CardContent>
-      </Card>
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold mb-4">About Me</h3>
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  I'm a senior backend engineer with experience building scalable and resilient systems at companies like
+                  Target, Flipkart, and Brevo. My work spans orchestration platforms, UPI integration, large-scale API gateways,
+                  and data-intensive backends.
+                </p>
+                <p>
+                  I specialize in system design, performance optimization, and delivering solutions that are reliable, maintainable,
+                  and impactful. My tech stack includes Golang, Java, Kafka, RabbitMQ, Redis, PostgreSQL, MongoDB, ClickHouse, Kubernetes, and Terraform.
+                </p>
+                <p>
+                  Outside of work, I enjoy reading engineering blogs, solving interesting coding problems to sharpen my thinking, and exploring new tools and frameworks.
+                  I'm passionate about clean architecture, developer experience, and building resilient systems that scale.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
 
           <Card>
             <CardContent className="p-6">
@@ -98,6 +102,158 @@ const About = () => {
           </Card>
         </div>
       </div>
+
+      {/* Work Experience Section */}
+      <Card>
+        <CardContent className="p-6">
+          <div className="flex items-center space-x-2 mb-6">
+            <Briefcase className="h-6 w-6 text-primary" />
+            <h3 className="text-xl font-semibold">Work Experience</h3>
+          </div>
+          
+          <div className="space-y-6">
+            {/* Target */}
+            <div className="border-l-2 border-primary pl-4">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h4 className="font-semibold">Senior Engineer - Target</h4>
+                  <div className="flex items-center space-x-1 text-sm text-muted-foreground mt-1">
+                    <MapPin className="h-3 w-3" />
+                    <span>Bangalore, India</span>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="flex items-center space-x-1 text-sm text-muted-foreground">
+                    <Calendar className="h-3 w-3" />
+                    <span>Sep 2024 - Present</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Flipkart */}
+            <div className="border-l-2 border-primary pl-4">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h4 className="font-semibold">Software Engineer 2 - Flipkart</h4>
+                  <div className="flex items-center space-x-1 text-sm text-muted-foreground mt-1">
+                    <MapPin className="h-3 w-3" />
+                    <span>Bangalore, India</span>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="flex items-center space-x-1 text-sm text-muted-foreground">
+                    <Calendar className="h-3 w-3" />
+                    <span>Feb 2022 - Sep 2024</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Brevo */}
+            <div className="border-l-2 border-primary pl-4">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h4 className="font-semibold">Software Engineer - Brevo</h4>
+                  <div className="flex items-center space-x-1 text-sm text-muted-foreground mt-1">
+                    <MapPin className="h-3 w-3" />
+                    <span>Noida, India</span>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="flex items-center space-x-1 text-sm text-muted-foreground">
+                    <Calendar className="h-3 w-3" />
+                    <span>Jun 2020 - Jan 2022</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Education Section */}
+      <Card>
+        <CardContent className="p-6">
+          <div className="flex items-center space-x-2 mb-6">
+            <GraduationCap className="h-6 w-6 text-primary" />
+            <h3 className="text-xl font-semibold">Education</h3>
+          </div>
+          
+          <div className="border-l-2 border-primary pl-4">
+            <div className="flex items-start justify-between">
+              <div>
+                <h4 className="font-semibold">Bachelor of Technology - Computer Science</h4>
+                <div className="flex items-center space-x-1 text-sm text-muted-foreground mt-1">
+                  <MapPin className="h-3 w-3" />
+                  <span>Delhi, India</span>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="flex items-center space-x-1 text-sm text-muted-foreground">
+                  <Calendar className="h-3 w-3" />
+                  <span>2016 - 2020</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Achievements Section */}
+      <Card>
+        <CardContent className="p-6">
+          <div className="flex items-center space-x-2 mb-6">
+            <Award className="h-6 w-6 text-primary" />
+            <h3 className="text-xl font-semibold">Achievements & Recognition</h3>
+          </div>
+          
+          <div className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="space-y-3">
+                <div className="flex items-center space-x-2">
+                  <Badge variant="secondary" className="text-xs">Global Contest</Badge>
+                  <span className="text-sm font-medium">Global Rank 28 - IEEEXtreme 12.0</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Badge variant="secondary" className="text-xs">Contest</Badge>
+                  <span className="text-sm font-medium">Ranked 17 - ACM ICPC Asia Kolkata-Kanpur 2018</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Badge variant="secondary" className="text-xs">Contest</Badge>
+                  <span className="text-sm font-medium">Ranked 22 - ACM ICPC Asia Amritapuri 2018</span>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-2">
+                  <Badge variant="secondary" className="text-xs">Contest</Badge>
+                  <span className="text-sm font-medium">Ranked 54 - ACM ICPC Asia Amritapuri 2017</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Badge variant="secondary" className="text-xs">Contest</Badge>
+                  <span className="text-sm font-medium">Ranked 110 - TCS Code Vita 2018</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-4 pt-4 border-t">
+              <h4 className="font-medium mb-2">Technical Skills</h4>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "System Design", "Algorithms", "Data Structures", "API Development", 
+                  "System Scalability", "Reliability", "Microservices", "Golang", 
+                  "Java", "Kafka", "RabbitMQ", "Redis", "PostgreSQL", "MongoDB", 
+                  "ClickHouse", "Docker", "Kubernetes", "Terraform"
+                ].map((skill) => (
+                  <Badge key={skill} variant="outline" className="text-xs">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
