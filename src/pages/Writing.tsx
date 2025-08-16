@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, Calendar, Clock } from "lucide-react";
+import { ExternalLink, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface BlogPost {
+  title: string;
+  link: string;
+  pubDate: string;
+  description: string;
+  thumbnail?: string;
+}
+
+interface RSSItem {
   title: string;
   link: string;
   pubDate: string;
@@ -20,7 +26,7 @@ const Writing = () => {
 
   const formatDescription = (htmlDescription: string): string => {
     // Remove HTML tags but preserve some structure
-    let text = htmlDescription
+    const text = htmlDescription
       .replace(/<\/p>/g, '\n\n') // Convert closing p tags to double line breaks
       .replace(/<\/h[1-6]>/g, '\n\n') // Convert closing header tags to double line breaks
       .replace(/<br\s*\/?>/g, '\n') // Convert br tags to line breaks
@@ -62,7 +68,7 @@ const Writing = () => {
         const data = await response.json();
         
         if (data.status === "ok") {
-          const formattedPosts = data.items.slice(0, 6).map((item: any) => ({
+          const formattedPosts = data.items.slice(0, 6).map((item: RSSItem) => ({
             title: item.title,
             link: item.link,
             pubDate: item.pubDate,
@@ -96,22 +102,28 @@ const Writing = () => {
 
   if (loading) {
     return (
-      <div className="max-w-6xl mx-auto space-y-8">
+      <div className="mx-auto max-w-[1200px] px-4 md:px-6 space-y-8">
         <div className="text-center space-y-4">
           <h1 className="text-3xl md:text-4xl font-bold">Writing</h1>
           <p className="text-lg text-muted-foreground">Loading latest posts...</p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 [grid-template-columns:repeat(auto-fit,minmax(320px,1fr))]">
           {[...Array(6)].map((_, i) => (
-            <Card key={i}>
-              <CardHeader>
+            <article
+              key={i}
+              className="flex flex-col rounded-xl border border-neutral-800 bg-neutral-900/60 p-6 shadow-sm"
+            >
+              <header className="space-y-2">
                 <Skeleton className="h-4 w-3/4" />
                 <Skeleton className="h-3 w-1/2" />
-              </CardHeader>
-              <CardContent>
+              </header>
+              <div className="mt-3 grow">
                 <Skeleton className="h-20 w-full" />
-              </CardContent>
-            </Card>
+              </div>
+              <footer className="mt-4">
+                <Skeleton className="h-4 w-24" />
+              </footer>
+            </article>
           ))}
         </div>
       </div>
@@ -119,7 +131,7 @@ const Writing = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8">
+    <div className="mx-auto max-w-[1200px] px-4 md:px-6 space-y-8">
       <div className="text-center space-y-4">
         <h1 className="text-3xl md:text-4xl font-bold">Writing</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -142,30 +154,38 @@ const Writing = () => {
         </Button>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 [grid-template-columns:repeat(auto-fit,minmax(320px,1fr))]">
         {posts.map((post, index) => (
-          <Card key={index} className="group hover:shadow-lg transition-shadow duration-200">
-            <CardHeader className="pb-3">
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">
+          <article
+            key={index}
+            className="group flex flex-col rounded-xl border border-neutral-800 bg-neutral-900/60 p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-within:-translate-y-0.5 focus-within:shadow-md"
+          >
+            <header>
+              <div className="mb-2 flex items-center space-x-2 text-sm text-muted-foreground">
                 <Calendar className="h-4 w-4" />
                 <span>{formatDate(post.pubDate)}</span>
               </div>
-              <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
+              <h3 className="text-lg font-semibold leading-snug group-hover:text-primary transition-colors">
                 {post.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
+              </h3>
+            </header>
+            <div className="mt-3 grow">
               <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
                 {post.description}
               </p>
-              <Button variant="outline" size="sm" asChild className="w-full">
-                <a href={post.link} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  Read on Medium
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
+            </div>
+            <footer className="mt-4">
+              <a
+                href={post.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-sm underline underline-offset-2 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+              >
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Read on Medium
+              </a>
+            </footer>
+          </article>
         ))}
       </div>
 
