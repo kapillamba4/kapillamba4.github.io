@@ -6,7 +6,14 @@ export interface ReadingItem {
     link?: string;
   }
   
-  export const readingData: ReadingItem[] = [
+export const readingData: ReadingItem[] = [
+    {
+      title: "Database Internals: A Deep Dive into How Distributed Data Systems Work",
+      author: "Alex Petrov",
+      type: "book",
+      status: "reading",
+      link: "https://www.amazon.com/Database-Internals-Deep-Distributed-Systems/dp/1492040347"
+    },
     {
       title: "Prometheus: Up & Running, 2nd Edition",
       author: "Brian Brazil",
