@@ -111,7 +111,7 @@ const Writing = () => {
           {[...Array(6)].map((_, i) => (
             <article
               key={i}
-              className="flex flex-col rounded-xl border border-neutral-800 bg-neutral-900/60 p-6 shadow-sm"
+              className="flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm"
             >
               <header className="space-y-2">
                 <Skeleton className="h-4 w-3/4" />
@@ -158,7 +158,7 @@ const Writing = () => {
         {posts.map((post, index) => (
           <article
             key={index}
-            className="group flex flex-col rounded-xl border border-neutral-800 bg-neutral-900/60 p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-within:-translate-y-0.5 focus-within:shadow-md"
+            className="group flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-within:-translate-y-0.5 focus-within:shadow-md"
           >
             <header>
               <div className="mb-2 flex items-center space-x-2 text-sm text-muted-foreground">

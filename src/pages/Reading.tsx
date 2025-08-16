@@ -11,7 +11,7 @@ const Reading = () => {
     return (
       <article
         key={`${item.title}-${item.author}`}
-        className="group flex flex-col rounded-xl border border-neutral-800 bg-neutral-900/60 p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-within:-translate-y-0.5 focus-within:shadow-md"
+        className="group flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-within:-translate-y-0.5 focus-within:shadow-md"
       >
         <header className="pb-3">
           <div className="flex items-start justify-between">
