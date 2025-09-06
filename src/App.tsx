@@ -13,15 +13,19 @@ function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
       <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/reading" element={<Reading />} />
-            <Route path="/writing" element={<Writing />} />
-            <Route path="/medium/*" element={<MediumRedirect />} />
-          </Routes>
-        </Layout>
+        <Routes>
+          <Route path="/medium/*" element={<MediumRedirect />} />
+          <Route path="/*" element={
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/reading" element={<Reading />} />
+                <Route path="/writing" element={<Writing />} />
+              </Routes>
+            </Layout>
+          } />
+        </Routes>
         <Toaster />
       </Router>
     </ThemeProvider>
