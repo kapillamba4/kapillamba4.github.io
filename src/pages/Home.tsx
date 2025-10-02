@@ -124,8 +124,8 @@ const Home = () => {
                     <h3 className="text-xl font-semibold">{section.title}</h3>
                     <p className="text-muted-foreground mt-2">{section.description}</p>
                   </div>
-                  <Link to={section.href}>
-                    <Button variant="ghost" className="w-full justify-between group-hover:bg-accent">
+                  <Link to={section.href} className="pt-2 block">
+                    <Button variant="ghost" className="w-full justify-between group-hover:bg-accent border border-border">
                       Explore
                       <ArrowRight className="h-4 w-4" />
                     </Button>
