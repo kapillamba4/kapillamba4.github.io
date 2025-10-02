@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Book, FileText, User, ArrowRight } from "lucide-react";
+import { Book, FileText, User, ArrowRight, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -23,6 +23,13 @@ const Home = () => {
       icon: User,
       href: "/about",
       color: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+    },
+    {
+      title: "Projects",
+      description: "Explore my personal projects and apps",
+      icon: Code,
+      href: "/projects",
+      color: "bg-orange-500/10 text-orange-600 dark:text-orange-400",
     },
     {
       title: "Reading",
@@ -93,7 +100,7 @@ const Home = () => {
           {profileData.title || "Backend Engineer"}, Open-Source & DSA Enthusiast
         </p>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          {profileData.bio || "Passionate about building scalable systems, contributing to open-source projects, and exploring data structures and algorithms. Welcome to my digital space."}
+          {profileData.bio || "Passionate about building scalable systems, contributing to open-source projects, and exploring data structures and algorithms."}
         </p>
         {profileData.location && (
           <p className="text-sm text-muted-foreground">
@@ -103,7 +110,7 @@ const Home = () => {
       </section>
 
       {/* Navigation Cards */}
-      <section className="grid md:grid-cols-3 gap-6">
+      <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {sections.map((section) => {
           const Icon = section.icon;
           return (
