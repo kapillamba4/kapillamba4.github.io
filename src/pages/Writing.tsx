@@ -68,7 +68,7 @@ const Writing = () => {
         const data = await response.json();
         
         if (data.status === "ok") {
-          const formattedPosts = data.items.slice(0, 6).map((item: RSSItem) => ({
+          const formattedPosts = data.items.map((item: RSSItem) => ({
             title: item.title,
             link: item.link,
             pubDate: item.pubDate,
