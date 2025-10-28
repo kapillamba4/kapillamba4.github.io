@@ -3,11 +3,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
+interface ProjectLink {
+  label: string;
+  url: string;
+}
+
 interface Project {
   id: string;
   title: string;
   description: string;
-  url: string;
+  url?: string;
+  links?: ProjectLink[];
   category: string;
   tags: string[];
   year: string;
@@ -30,12 +36,22 @@ const Projects = () => {
     {
       id: "vitality-app-native",
       title: "Vitality App - Native",
-      description: "iOS and Android mobile applications for the Vitality wellness platform. Bringing comprehensive health tracking and mindfulness exercises to your pocket.",
-      url: "https://vitalityapp.fit/",
+      description:
+        "iOS and Android mobile applications for the Vitality wellness platform. Now live on the App Store and Google Play, bringing comprehensive health tracking and mindfulness exercises to your pocket.",
+      links: [
+        {
+          label: "Download on the App Store",
+          url: "https://apps.apple.com/us/app/vitality-body-mind/id6749547421"
+        },
+        {
+          label: "Get it on Google Play",
+          url: "https://play.google.com/store/apps/details?id=com.vitality.app"
+        }
+      ],
       category: "Health & Wellness",
       tags: ["Vite", "React", "Supabase", "PostgreSQL", "Node.js", "OpenAI"],
       year: "2025",
-      status: "Beta Testing"
+      status: "Live"
     }
   ];
 
@@ -104,21 +120,44 @@ const Projects = () => {
                 </div>
               </div>
               
-              <Button 
-                asChild 
-                className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                variant="outline"
-              >
-                <a 
-                  href={project.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2"
+              {project.links ? (
+                <div className="grid gap-2">
+                  {project.links.map((link) => (
+                    <Button
+                      key={link.url}
+                      asChild
+                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      variant="outline"
+                    >
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        {link.label}
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </Button>
+                  ))}
+                </div>
+              ) : project.url ? (
+                <Button
+                  asChild
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                  variant="outline"
                 >
-                  View Project
-                  <ExternalLink className="h-4 w-4" />
-                </a>
-              </Button>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2"
+                  >
+                    View Project
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </Button>
+              ) : null}
             </CardContent>
           </Card>
         ))}
