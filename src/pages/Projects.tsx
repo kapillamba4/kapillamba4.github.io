@@ -30,7 +30,7 @@ const Projects = () => {
       url: "https://vitalityapp.fit/",
       category: "Health & Wellness",
       tags: ["Vite", "React", "Supabase", "PostgreSQL", "Node.js", "OpenAI"],
-      year: "2024",
+      year: "2025",
       status: "Live"
     },
     {
