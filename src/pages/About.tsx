@@ -42,7 +42,7 @@ const About = () => {
                 </a>
               </Button>
               <Button variant="outline" size="sm" asChild>
-                <a href="https://medium.com/@kapillamba4" target="_blank" rel="noopener noreferrer">
+                <a href="https://kapillamba4.medium.com/" target="_blank" rel="noopener noreferrer">
                   <FileText className="h-4 w-4" />
                 </a>
               </Button>
@@ -110,8 +110,27 @@ const About = () => {
             <Briefcase className="h-6 w-6 text-primary" />
             <h3 className="text-xl font-semibold">Work Experience</h3>
           </div>
-          
+
           <div className="space-y-6">
+            {/* Expedia */}
+            <div className="border-l-2 border-primary pl-4">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h4 className="font-semibold">SDE 3 - Expedia</h4>
+                  <div className="flex items-center space-x-1 text-sm text-muted-foreground mt-1">
+                    <MapPin className="h-3 w-3" />
+                    <span>Gurugram, India</span>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="flex items-center space-x-1 text-sm text-muted-foreground">
+                    <Calendar className="h-3 w-3" />
+                    <span>Feb 2026 - Present</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Target */}
             <div className="border-l-2 border-primary pl-4">
               <div className="flex items-start justify-between">
@@ -125,7 +144,7 @@ const About = () => {
                 <div className="text-right">
                   <div className="flex items-center space-x-1 text-sm text-muted-foreground">
                     <Calendar className="h-3 w-3" />
-                    <span>Sep 2024 - Present</span>
+                    <span>Sep 2024 - Jan 2026</span>
                   </div>
                 </div>
               </div>
@@ -179,7 +198,7 @@ const About = () => {
             <GraduationCap className="h-6 w-6 text-primary" />
             <h3 className="text-xl font-semibold">Education</h3>
           </div>
-          
+
           <div className="border-l-2 border-primary pl-4">
             <div className="flex items-start justify-between">
               <div>
@@ -207,7 +226,7 @@ const About = () => {
             <Award className="h-6 w-6 text-primary" />
             <h3 className="text-xl font-semibold">Achievements & Recognition</h3>
           </div>
-          
+
           <div className="space-y-4">
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-3">
@@ -235,14 +254,14 @@ const About = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-4 pt-4 border-t">
               <h4 className="font-medium mb-2">Technical Skills</h4>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "System Design", "Algorithms", "Data Structures", "API Development", 
-                  "System Scalability", "Reliability", "Microservices", "Golang", 
-                  "Java", "Kafka", "RabbitMQ", "Redis", "PostgreSQL", "MongoDB", 
+                  "System Design", "Algorithms", "Data Structures", "API Development",
+                  "System Scalability", "Reliability", "Microservices", "Golang",
+                  "Java", "Kafka", "RabbitMQ", "Redis", "PostgreSQL", "MongoDB",
                   "ClickHouse", "Docker", "Kubernetes", "Terraform"
                 ].map((skill) => (
                   <Badge key={skill} variant="outline" className="text-xs">

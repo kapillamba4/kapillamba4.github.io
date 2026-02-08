@@ -44,7 +44,7 @@ const Writing = () => {
     // Get first sentence only
     const sentences = text.split(/[.!?]+/);
     let firstSentence = sentences[0].trim();
-    
+
     // Ensure it ends with a full stop if it doesn't already end with punctuation
     if (firstSentence && !firstSentence.match(/[.!?]$/)) {
       firstSentence += '.';
@@ -60,13 +60,13 @@ const Writing = () => {
         const response = await fetch(
           `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@kapillamba4`
         );
-        
+
         if (!response.ok) {
           throw new Error("Failed to fetch blog posts");
         }
-        
+
         const data = await response.json();
-        
+
         if (data.status === "ok") {
           const formattedPosts = data.items.map((item: RSSItem) => ({
             title: item.title,
@@ -75,7 +75,7 @@ const Writing = () => {
             description: formatDescription(item.description),
             thumbnail: item.thumbnail || "/placeholder.svg",
           }));
-          
+
           setPosts(formattedPosts);
         } else {
           throw new Error("RSS feed returned error status");
@@ -135,7 +135,7 @@ const Writing = () => {
       <div className="text-center space-y-4">
         <h1 className="text-3xl md:text-4xl font-bold">Writing</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Thoughts, insights, and experiences from my journey in software development, 
+          Thoughts, insights, and experiences from my journey in software development,
           backend engineering, and technology exploration.
         </p>
         {error && (
@@ -147,7 +147,7 @@ const Writing = () => {
 
       <div className="flex justify-center">
         <Button asChild>
-          <a href="https://medium.com/@kapillamba4" target="_blank" rel="noopener noreferrer">
+          <a href="https://kapillamba4.medium.com/" target="_blank" rel="noopener noreferrer">
             <ExternalLink className="h-4 w-4 mr-2" />
             View All on Medium
           </a>
@@ -193,7 +193,7 @@ const Writing = () => {
         <div className="text-center py-12">
           <p className="text-muted-foreground">No blog posts available at the moment.</p>
           <Button asChild className="mt-4">
-            <a href="https://medium.com/@kapillamba4" target="_blank" rel="noopener noreferrer">
+            <a href="https://kapillamba4.medium.com/" target="_blank" rel="noopener noreferrer">
               Visit Medium Profile
             </a>
           </Button>

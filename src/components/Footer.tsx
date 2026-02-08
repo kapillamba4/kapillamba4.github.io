@@ -10,7 +10,7 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground">
             © {currentYear} Kapil Lamba
           </p>
-          
+
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <a
               href="https://github.com/kapillamba4"
@@ -29,7 +29,7 @@ const Footer = () => {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="https://medium.com/@kapillamba4"
+              href="https://kapillamba4.medium.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"

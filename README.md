@@ -44,4 +44,4 @@ src/
 
 - **GitHub**: [@kapillamba4](https://github.com/kapillamba4)
 - **LinkedIn**: [kapillamba4](https://linkedin.com/in/kapillamba4)
-- **Medium**: [@kapillamba4](https://medium.com/@kapillamba4)
+- **Medium**: [@kapillamba4](https://kapillamba4.medium.com/)
