@@ -41,7 +41,7 @@ const Projects = () => {
       links: [
         {
           label: "Download on the App Store",
-          url: "https://apps.apple.com/us/app/vitality-body-mind/id6749547421"
+          url: "https://apps.apple.com/in/app/vitality-fitness-nutrition/id6749547421"
         },
         {
           label: "Get it on Google Play",
@@ -104,13 +104,13 @@ const Projects = () => {
                 <span className="text-sm text-muted-foreground">{project.category}</span>
               </div>
             </CardHeader>
-            
+
             <CardContent className="flex-1 flex flex-col space-y-4">
               <div className="flex-1 space-y-4">
                 <p className="text-muted-foreground text-sm leading-relaxed text-left">
                   {project.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <Badge key={tag} variant="secondary" className="text-xs">
@@ -119,7 +119,7 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
-              
+
               {project.links ? (
                 <div className="grid gap-2">
                   {project.links.map((link) => (
