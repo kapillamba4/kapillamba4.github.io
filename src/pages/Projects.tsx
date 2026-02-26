@@ -24,6 +24,16 @@ interface Project {
 const Projects = () => {
   const projects: Project[] = [
     {
+      id: "code-memory",
+      title: "code-memory",
+      description: "A deterministic, high-precision code intelligence layer exposed as a Model Context Protocol (MCP) server. Features zero telemetry, no API key required, and runs entirely locally with sentence-transformers for semantic code search.",
+      url: "https://github.com/kapillamba4/code-memory",
+      category: "Developer Tools",
+      tags: ["Python", "MCP", "SQLite", "Tree-sitter", "sentence-transformers"],
+      year: "2026",
+      status: "Live"
+    },
+    {
       id: "vitality-app-web",
       title: "Vitality App - Web",
       description: "A comprehensive wellness platform focused on overall health. Features personalized wellness tracking, mindfulness exercises, and holistic health insights.",
