@@ -24,8 +24,28 @@ interface Project {
 const Projects = () => {
   const projects: Project[] = [
     {
+      id: "resume-generator",
+      title: "Resume Generator: AI Builder",
+      description:
+        "A free, ATS-friendly resume builder for web and iOS. Pick from built-in templates, import an existing resume PDF with AI, keep separate profiles tailored to each role, and export in one tap.",
+      links: [
+        {
+          label: "Open Web App",
+          url: "https://freeresumegenerator.app/"
+        },
+        {
+          label: "Download on the App Store",
+          url: "https://apps.apple.com/in/app/resume-generator-ai-builder/id6773040439"
+        }
+      ],
+      category: "Productivity",
+      tags: ["Web", "iOS", "AI", "ATS", "PDF Import"],
+      year: "2026",
+      status: "Live"
+    },
+    {
       id: "code-memory",
-      title: "code-memory",
+      title: "Code Memory",
       description: "A deterministic, high-precision code intelligence layer exposed as a Model Context Protocol (MCP) server. Features zero telemetry, no API key required, and runs entirely locally with sentence-transformers for semantic code search.",
       url: "https://github.com/kapillamba4/code-memory",
       category: "Developer Tools",
