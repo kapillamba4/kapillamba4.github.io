@@ -11,7 +11,7 @@ export const readingData: ReadingItem[] = [
       title: "Database Internals: A Deep Dive into How Distributed Data Systems Work",
       author: "Alex Petrov",
       type: "book",
-      status: "reading",
+      status: "finished",
       link: "https://www.amazon.com/Database-Internals-Deep-Distributed-Systems/dp/1492040347"
     },
     {
