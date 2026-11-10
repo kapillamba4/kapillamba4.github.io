@@ -1,62 +1,72 @@
 [
   {
+    "id": "0a0ca70c6440",
     "title": "Building a Scalable E-commerce Payment service",
     "link": "https://kapillamba4.medium.com/building-a-scalable-e-commerce-payment-service-0a0ca70c6440",
     "pubDate": "2026-02-10T14:54:00.000Z",
-    "excerpt": "A payment system is more than a thin facade over a third-party API."
+    "excerpt": "A payment system is more than a thin facade over a third-party API. it is a promise. 1. If a user’s money is debited but the order fails, you lose trust."
   },
   {
+    "id": "03da6c60b711",
     "title": "Designing Resilient Event-Driven Systems that Scale",
     "link": "https://kapillamba4.medium.com/designing-resilient-event-driven-systems-that-scale-03da6c60b711",
     "pubDate": "2025-12-16T12:47:09.000Z",
     "excerpt": "Event-driven architecture diagrams are great to look at: decoupled producers & consumers, message buffering, and automatic retries."
   },
   {
+    "id": "c3155027aa3f",
     "title": "Culture of Extreme Documentation: An Engineering Superpower",
     "link": "https://kapillamba4.medium.com/culture-of-extreme-documentation-an-engineering-superpower-c3155027aa3f",
     "pubDate": "2025-11-07T12:35:11.000Z",
-    "excerpt": "Picture this: you’ve just finished a one-on-one meeting explaining a complex design to a teammate."
+    "excerpt": "Picture this: you’ve just finished a one-on-one meeting explaining a complex design to a teammate. Twenty minutes later, another team member pings you asking for the exact same explanation."
   },
   {
+    "id": "074ba9afdaa3",
     "title": "Faster Database Queries: Practical Techniques",
     "link": "https://kapillamba4.medium.com/faster-database-queries-practical-techniques-074ba9afdaa3",
     "pubDate": "2025-10-28T05:32:11.000Z",
-    "excerpt": "On Target’s Data Platform team, we tune our job-orchestration platform to stay fast and reliable through seasonal sale peak load."
+    "excerpt": "On Target’s Data Platform team, we tune our job-orchestration platform to stay fast and reliable through seasonal sale peak load."
   },
   {
+    "id": "bd65ab679efa",
     "title": "Reliability as a First-Class Citizen: Patterns for Zero-Downtime Applications",
     "link": "https://kapillamba4.medium.com/reliability-as-a-first-class-citizen-patterns-for-zero-downtime-applications-bd65ab679efa",
     "pubDate": "2025-09-06T19:05:56.000Z",
-    "excerpt": "This article outlines a comprehensive approach across the application lifecycle — design, programming and ops that ensures your application suffers from near-zero downtime."
+    "excerpt": "This article outlines a comprehensive approach across the application lifecycle — design, programming and ops that ensures your application suffers from near-zero downtime."
   },
   {
+    "id": "8d8bac940ff3",
     "title": "Scaling Prometheus: Managing 80M Metrics Smoothly",
     "link": "https://kapillamba4.medium.com/hierarchical-federation-in-prometheus-managing-millions-of-metrics-cleanly-8d8bac940ff3",
     "pubDate": "2025-08-15T22:02:48.000Z",
     "excerpt": "At Flipkart, we faced a challenge at the API Gateway, where roughly 2,000 instances of the gateway application were emitting close to 40,000 metrics each, resulting in over 80 million time-series datapoints being pushed at once."
   },
   {
+    "id": "92475cd7447c",
     "title": "Thinking in Scalability: Pragmatic Decisions at Peak Load",
     "link": "https://kapillamba4.medium.com/thinking-in-scalability-pragmatic-decisions-at-peak-load-92475cd7447c",
     "pubDate": "2025-07-22T20:39:43.000Z",
     "excerpt": "Scale readiness is not an afterthought but a constraint you should design with from day one."
   },
   {
+    "id": "d85b91c22eed",
     "title": "8 Habits to Keep Big Projects Moving as an Individual Contributor",
     "link": "https://kapillamba4.medium.com/8-habits-to-keep-big-projects-moving-as-an-individual-contributor-d85b91c22eed",
     "pubDate": "2025-06-24T13:13:17.000Z",
-    "excerpt": "During my time at Flipkart, I collaborated on multiple cross-team projects."
+    "excerpt": "During my time at Flipkart, I collaborated on multiple cross-team projects. Here are the habits that helped me manage the chaos and keep releases on track."
   },
   {
+    "id": "f261625314df",
     "title": "Foundations of Golang: A Four-Week Kick-Start",
     "link": "https://kapillamba4.medium.com/foundations-of-go-a-four-week-kick-start-f261625314df",
     "pubDate": "2025-06-24T07:39:48.000Z",
-    "excerpt": "A fast-track plan for experienced devs who want to write Go fluently in a month."
+    "excerpt": "A fast-track plan for experienced devs who want to write Go fluently in a month."
   },
   {
+    "id": "db5d6df20498",
     "title": "Scaling Infrastructure as Code with Terraform and Atlantis",
     "link": "https://kapillamba4.medium.com/scaling-infrastructure-as-code-with-terraform-atlantis-db5d6df20498",
     "pubDate": "2025-06-23T20:13:37.000Z",
-    "excerpt": "02:30 am — the pager rings as half the infra has just vanished."
+    "excerpt": "02:30 am — the pager rings as half the infra has just vanished. The fix? Git-gate every change with Terraform and Atlantis. Scaling Terraform isn’t about doing more work; it’s about making every change safer and repeatable."
   }
 ]

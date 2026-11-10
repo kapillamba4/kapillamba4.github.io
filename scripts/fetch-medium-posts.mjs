@@ -20,35 +20,56 @@ const decodeEntities = (text) =>
     .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
     .replace(/&amp;/g, "&");
 
-// Returns the text inside the first <name>…</name>, unwrapping CDATA.
+// Returns the text inside the first <name …>…</name>, unwrapping CDATA.
 const readTag = (xml, name) => {
-  const match = xml.match(new RegExp(`<${name}>([\\s\\S]*?)</${name}>`));
+  const match = xml.match(new RegExp(`<${name}(?:\\s[^>]*)?>([\\s\\S]*?)</${name}>`));
   if (!match) return "";
   const value = match[1].trim();
   const cdata = value.match(/^<!\[CDATA\[([\s\S]*)\]\]>$/);
   return cdata ? cdata[1] : decodeEntities(value);
 };
 
-// First sentence of the post body, as plain text. Images and any heading the
-// post opens with (usually the title again) are skipped.
-const toExcerpt = (html) => {
-  const text = decodeEntities(
-    html
-      .replace(/<figure[\s\S]*?<\/figure>/g, "")
-      .replace(/^(\s*<h[1-6][^>]*>[\s\S]*?<\/h[1-6]>)+/, "")
-      .replace(/<\/(p|h[1-6]|blockquote)>/g, "\n\n")
-      .replace(/<br\s*\/?>/g, "\n")
-      .replace(/<li>/g, "• ")
-      .replace(/<\/li>/g, "\n")
-      .replace(/<[^>]*>/g, "")
-  ).trim();
+// Excerpt length, in characters: keep adding whole sentences until at least
+// MIN, without going over MAX.
+const EXCERPT_MIN = 140;
+const EXCERPT_MAX = 240;
 
-  const firstSentence = text.split(/[.!?]+/)[0].trim();
-  return firstSentence && !/[.!?]$/.test(firstSentence) ? `${firstSentence}.` : firstSentence;
+const truncate = (text, max) =>
+  text.length <= max ? text : `${text.slice(0, max).replace(/\s+\S*$/, "")}…`;
+
+// The opening sentences of a post, as plain text. This is only a fallback for
+// posts with no hand-written summary in src/data/medium-summaries.ts, since
+// posts often open with a hook rather than a description.
+const toExcerpt = (html) => {
+  // Opening prose only: skip images and any heading the post opens with
+  // (usually the title again), and stop at the first section heading, list
+  // or code block.
+  const intro = html
+    .replace(/<figure[\s\S]*?<\/figure>/g, "")
+    .replace(/^(\s*<h[1-6][^>]*>[\s\S]*?<\/h[1-6]>)+/, "")
+    .split(/<(?:h[1-6]|ul|ol|pre)[\s>]/)[0];
+  const text = decodeEntities(
+    intro.replace(/<br\s*\/?>|<\/(?:p|blockquote)>/g, " ").replace(/<[^>]*>/g, "")
+  )
+    .replace(/\s+/g, " ")
+    .trim();
+
+  let excerpt = "";
+  for (const sentence of text.split(/(?<=[.!?]["'”’)]?)\s+(?=["'“‘(]?[A-Z0-9])/)) {
+    // Stop at an unfinished sentence, such as a lead-in to a list.
+    if (!/[.!?]["'”’)]?$/.test(sentence)) break;
+    const next = excerpt ? `${excerpt} ${sentence}` : sentence;
+    if (excerpt && next.length > EXCERPT_MAX) break;
+    excerpt = next;
+    if (excerpt.length >= EXCERPT_MIN) break;
+  }
+  return truncate(excerpt || text, EXCERPT_MAX + 60);
 };
 
 const parseFeed = (xml) =>
   [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map(([, item]) => ({
+    // Medium's post id, e.g. "0a0ca70c6440" from https://medium.com/p/0a0ca70c6440.
+    id: readTag(item, "guid").split("/").pop(),
     title: decodeEntities(readTag(item, "title")),
     // Drop Medium's ?source=rss… tracking parameter.
     link: readTag(item, "link").replace(/\?source=rss[^#]*/, ""),
@@ -67,7 +88,9 @@ try {
 
   const posts = parseFeed(await response.text());
   if (posts.length === 0) throw new Error("feed had no posts");
-  if (posts.some((post) => !post.title || !post.link)) throw new Error("feed had a post with no title or link");
+  if (posts.some((post) => !post.id || !post.title || !post.link)) {
+    throw new Error("feed had a post with no id, title or link");
+  }
 
   const json = `${JSON.stringify(posts, null, 2)}\n`;
   const previous = await readFile(OUT_FILE, "utf8").catch(() => "");
