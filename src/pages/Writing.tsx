@@ -2,6 +2,7 @@ import { ExternalLink, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // Saved at build time by scripts/fetch-medium-posts.mjs.
 import posts from "@/data/medium-posts.json";
+import { mediumSummaries } from "@/data/medium-summaries";
 
 const formatDate = (dateString: string) =>
   new Date(dateString).toLocaleDateString("en-US", {
@@ -47,7 +48,7 @@ const Writing = () => {
             </header>
             <div className="mt-3 grow">
               <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
-                {post.excerpt}
+                {mediumSummaries[post.id] ?? post.excerpt}
               </p>
             </div>
             <footer className="mt-4">
