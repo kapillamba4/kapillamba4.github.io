@@ -3,6 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
+  # Rebuild daily so new Medium posts show up on the Writing page.
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -34,6 +38,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
+      - name: Fetch latest Medium posts
+        run: npm run fetch:posts
+
       - name: Build
         run: npm run build
         
